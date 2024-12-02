@@ -1,7 +1,5 @@
-<div class="card_light position-relative">
-  <div class="position-relative">
+  <div class="position-relative card_light" data-event-id="<%= event.id %>">
     <%= cl_image_tag event.sport.photo.key, crop: :thumb %>
-  </div>
   <div class="card_content">
     <div class="title">
       <%= event.name %>

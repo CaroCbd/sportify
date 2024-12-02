@@ -1,27 +1,34 @@
 <div class="position-relative d-flex flex-column align-items-center">
 
-    <div class="title-home-map">
-      On joue à quoi ?
+    <div>
+      <p class="event-title-font">
+        On joue à quoi ?
+      </p>
     </div>
 
-    <div id="search-bar" style="margin-bottom: 115px">
+    <div id="search-bar">
       <%= render "search_bar" %>
     </div>
 
-    <div class="map d-flex justify-content-center">
-      <%= render "map", markers: @markers, user:current_user%>
+    <div data-controller="toggle">
+        <%= render "toggle_map_list", state:params[:state] %>
     </div>
 
-    <div id="toggle-map-list">
-      <span>Liste</span>
-      <span>Carte</span>
-    </div>
-</div>
-
-<div id="slider-map">
-    <div class="horizontal-scroll-wrapper card-grid">
-      <% @near_events.each do |event| %>
-        <%= render "event_card_light", event:event  %>
+    <%= turbo_frame_tag :results do %>
+      <% if params[:mode] == "map" %>
+        <div id="map-view">
+          <%= render "map_with_slider", markers: @markers, user:current_user, near_events:@near_events %>
+        </div>
+      <% else %>
+        <div id="list-view">
+          <%= render "index_with_pills_and_cards", search_message:@search_message, events:@events %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
+
 </div>
+
+
+<!--
+
+-->

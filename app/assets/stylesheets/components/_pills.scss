@@ -9,20 +9,24 @@
   overflow-y: hidden;
 }
 
+// border green, text green, fond blanc
+// mettre les pills dans une grid ?
+
 .pills-card {
   display: flex;
   width: fit-content;
   height: 21px;
-  padding: 7px 45px 7px 45px;
+  padding: 1em;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 150px;
-  background-color: $sportify-lightblue;
+  background-color: $white;
+  border: 1px solid $secondary;
   scroll-snap-align: start;
   text-align: center;
   vertical-align: middle;
-  color: $white;
+  color: $secondary;
   white-space: nowrap;
   font-family: $body-font;
 }
@@ -59,24 +63,3 @@
   flex-direction: row;
   justify-content: flex-end;
 }
-
-// Parent
-// .horizontal-scroll-wrapper {
-//   width: 100%;
-//   height: 15rem;
-//   overflow-x: scroll;
-//   scroll-snap-type: x mandatory;
-//   overflow-y: hidden;
-// }
-// // Parent
-// .card-grid {
-//   display: flex;
-//   flex-direction: row;
-//   gap: 1rem;
-// }
-// Enfant
-// .card-big {
-//   height: 7.5rem;
-//   width: 19rem;
-//   scroll-snap-align: start;
-// }

@@ -17,21 +17,21 @@ export default class extends Controller {
       // center: [this.userValue.longitude, this.userValue.latitude],
       zoom: 7
     })
-    console.log("create map");
+    //console.log("create map");
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
 
   #addMarkersToMap() {
-    console.log("add markers to map");
+    //console.log("add markers to map");
     this.markersValue.forEach((marker) => {
-      console.log(marker);
+      //console.log(marker);
       const customMarker = document.createElement("div");
       customMarker.innerHTML = marker.marker_html;
       customMarker.addEventListener('click', function(){
-          console.log(marker.event_id);
+          //console.log(marker.event_id);
           const event_id_clicked = document.querySelector(`[data-event-id="${marker.event_id}"]`);
-          console.log(event_id_clicked);
+          //console.log(event_id_clicked);
           event_id_clicked.scrollIntoView({
             behavior: "smooth",
             block: "end",
@@ -44,7 +44,7 @@ export default class extends Controller {
   }
 
   #fitMapToMarkers() {
-    console.log("fit map to markers");
+    //console.log("fit map to markers");
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([marker.coordinates.lng, marker.coordinates.lat]))
     this.map.fitBounds(bounds, { padding: 50, maxZoom: 90, duration: 2000 })

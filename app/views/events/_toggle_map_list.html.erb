@@ -1,0 +1,61 @@
+<div id="toggle-map-list" data-controller="toggle">
+  <%= link_to search_path(mode: :list), data: {turbo_frame: :results}, class:"btn-toggle" do %>
+    <input type="radio"
+      data-togggle-target="toggle"
+      data-action="click->toggle#list" >
+      <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 13h2v-2H3zm0 4h2v-2H3zm0-8h2V7H3zm4 4h14v-2H7zm0 4h14v-2H7zM7 7v2h14V7z"/></svg>
+      <span>
+          Liste
+      </span>
+  <% end %>
+  <div class="separator"></div>
+  <%= link_to search_path(mode: :map), data: {turbo_frame: :results}, class:"btn-toggle" do %>
+    <input type="radio"
+      data-togggle-target="toggle"
+      data-action="click->toggle#map" >
+      <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m20.5 3l-.16.03L15 5.1L9 3L3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1l5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg>
+      <span>
+        Carte
+      </span>
+  <% end %>
+</div>
+
+<!--
+<div id="toggle-map-list">
+  <div>
+    <input
+      data-action="click->toggle#toggle_list"
+      type="radio"
+      id="list"
+      name="switch-one"
+      value="yes"
+      checked />
+    <label
+      for="list"
+      class="btn-toggle">
+        <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 13h2v-2H3zm0 4h2v-2H3zm0-8h2V7H3zm4 4h14v-2H7zm0 4h14v-2H7zM7 7v2h14V7z"/></svg>
+        <span>
+          Liste
+        </span>
+    </label>
+  </div>
+  <div class="separator"></div>
+  <div>
+    <input
+      data-action="click->toggle#toggle_map"
+      type="radio"
+      id="map"
+      name="switch-one"
+      value="no" />
+    <label
+        for="map"
+        class="btn-toggle"
+    >
+      <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m20.5 3l-.16.03L15 5.1L9 3L3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1l5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/></svg>
+      <span>
+        Carte
+      </span>
+    </label>
+  </div>
+</div>
+-->

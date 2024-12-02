@@ -1,0 +1,11 @@
+  <div class="map d-flex justify-content-center">
+    <%= render "map", markers: @markers, user:current_user%>
+  </div>
+
+  <div id="slider-map">
+    <div class="horizontal-scroll-wrapper card-grid">
+      <% @near_events.each do |event| %>
+        <%= render "event_card_light", event:event  %>
+      <% end %>
+    </div>
+  </div>

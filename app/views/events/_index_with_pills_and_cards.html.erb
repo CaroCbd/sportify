@@ -1,0 +1,33 @@
+  <div id="index">
+    <div class="pills">
+        <div class="pills-card">Basketball</div>
+        <div class="pills-card">Padel</div>
+        <div class="pills-card">Tennis</div>
+        <div class="pills-card">Palet</div>
+        <div class="pills-card">Lancer de mouettes</div>
+        <div class="pills-card">Tir à la mouette</div>
+    </div>
+
+    <% if search_message %>
+        <p>
+          <%= search_message %>
+        </p>
+        <h2>
+          Tous nos évènements
+        </h2>
+        <div class="horizontal-scroll-wrapper card-grid">
+          <% events.each do |event| %>
+            <%= render "event_card", event:event  %>
+          <% end %>
+        </div>
+      <% else %>
+        <h2>
+          Spécialement pour vous
+        </h2>
+          <div class="horizontal-scroll-wrapper card-grid">
+            <% events.each do |event| %>
+              <%= render "event_card", event:event  %>
+            <% end %>
+          </div>
+      <% end %>
+  </div>
