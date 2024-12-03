@@ -36,6 +36,14 @@ class EventsController < ApplicationController
         event: @event,
         status: :accepted
       )
+
+      @publication = Publication.new
+      @publication.user = current_user
+      @publication.title = @event.name
+      @publication.content = @event.description
+      @publication.sport = @event.sport
+      @publication.photo.attach(params[:photo])
+      @publication.save
       flash[:notice] = "Événement créé avec succès!"
       redirect_to event_path(@event)
     else

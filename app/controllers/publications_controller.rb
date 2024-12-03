@@ -1,14 +1,19 @@
 class PublicationsController < ApplicationController
 
-
   def index
     @publications = Publication.all
     @publication = Publication.new
+    @comments = Comment.all
+    @comment = Comment.new
+
   end
 
   def create
+    # @comment = Comment.new
+    # @comments = Comment.all
     @publication = Publication.new(publication_params)
     @publication.user = current_user
+    # @publication.comments = @comments
     @publication.save
     # @publication.save
     # redirect_to publications_path

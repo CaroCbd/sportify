@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :participations, only: [:create]
   end
 
-  resources :publications, only: %i[index create]
+  resources :publications, only: %i[index create] do
+    resources :comments, only: %i[index create]
+  end
 
   get "search", to: "events#search", as: :search
   get "my_events", to: "events#my_events", as: :my_events
