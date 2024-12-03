@@ -1,0 +1,36 @@
+.fake-input-date{
+  line-height: 1.5em;
+  position: relative;
+
+  span {
+    position: absolute;
+    top:0;
+    z-index: 1;
+  }
+}
+
+.datepicker-input{
+  width: 100%;
+  position: relative;
+  opacity: 1;
+  z-index: 2;
+}
+
+.datepicker-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid green;
+  color:white;
+}
+
+.time-pickers{
+  display: flex;
+  flex: row;
+  gap:1em;
+}
