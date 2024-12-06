@@ -1,11 +1,11 @@
   <div class="position-relative card_light" data-event-id="<%= event.id %>">
     <%= cl_image_tag event.sport.photo.key, crop: :thumb %>
   <div class="card_content">
-    <div class="title">
+    <div class="title fs-6">
       <%= event.name %>
     </div>
     <div class="details">
-      <div class="d-flex flex-row gap-1">
+      <div class="d-flex flex-row gap-1 align-items-center">
         <i class="fa-solid fa-people-group" style="color:#35A29F"></i>
         <p class="mb-1">
           <% participants_left = (event.sport.number_of_players_max - event.participations.count).to_i %>
@@ -19,7 +19,7 @@
         </p>
       </div>
       <div class="d-flex flex-row gap-1">
-        <i class="fa-solid fa-calendar" style="color:#35A29F"></i>
+        <i class="fa-solid fa-calendar mt-2" style="color:#35A29F"></i>
         <p class="mb-1">
           <%= I18n.l(event.start_at, format: "%d %B") %> - <%= I18n.l(event.start_at, format: "%R") %> à <%= I18n.l(event.end_at, format: "%R") %>
         </p>
