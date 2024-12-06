@@ -66,6 +66,11 @@
   padding: 6px 12px;
   border-radius: 12px;
   font-size: $font-size-base;
+  
+  &:has(input[type="radio"]:checked){
+    background-color: $sportify-lightblue;
+    color: $white;
+  }
 }
 
 .toggle-active {

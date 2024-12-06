@@ -1,1 +1,1 @@
-<%= link_to sport_name, search_path(sport_name: sport_name, sports_list: params[:sports_list]), class: "pills-card btn btn-primary #{"active text-white" if params[:sports_list].include?(sport_name)}" %>
+<%= link_to sport_name, search_path(sport_name: sport_name, sports_list: params[:sports_list], toggle: params[:toggle]), class: "pills-card btn btn-primary #{"active text-white" if params[:sports_list].include?(sport_name)}" %>

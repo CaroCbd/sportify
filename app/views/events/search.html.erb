@@ -10,11 +10,11 @@
       <%= render "search_bar" %>
     </div>
 
+    <%= turbo_frame_tag :results do %>
     <div id="toggle">
-    <%= render "toggle_map_list", state:params[:state] %>
+    <%= render "toggle_map_list" %>
     </div>
 
-    <%= turbo_frame_tag :results do %>
       <% if params[:toggle] == "list" %>
         <div id="list-view">
           <%= render "index_with_pills_and_cards", search_message:@search_message, events:@events %>

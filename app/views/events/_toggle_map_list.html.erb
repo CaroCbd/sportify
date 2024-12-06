@@ -8,29 +8,35 @@
     }) do %>
     <%#= hidden_field_tag :sports_list, value: params[:sports_list] %>
 <% params[:sports_list].each do |sport| %>
-  <%= hidden_field_tag "sports_list[]", value: sport %>
+  <%= hidden_field_tag "sports_list[]", sport %>
 <% end %>
 <%#= console %>
 
-  <div class="toggle-container" data-controller="toggle">
-    <label for="list" class="btn-toggle" data-action="click->toggle#list">
-      <svg id="list-icon" class="icon-btn icon-unactive" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M3 13h2v-2H3zm0 4h2v-2H3zm0-8h2V7H3zm4 4h14v-2H7zm0 4h14v-2H7zM7 7v2h14V7z"/>
-      </svg>
-      <input id="list" value="list" type="radio" name="toggle">
-      <span>
-          Liste
-      </span>
-    </label>
-    <div class="separator"></div>
-    <label for="map" class="btn-toggle toggle-active" data-action="click->toggle#map">
+  <div class="toggle-container">
+    <%=  label_tag 'toggle_map', class:"btn-toggle" do %>
+    <%# <label for="map" class="btn-toggle toggle-active" data-action="click->toggle#map"> %>
       <svg id="map-icon" class="icon-btn icon-active" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
         <path fill="currentColor" d="m20.5 3l-.16.03L15 5.1L9 3L3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1l5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5M15 19l-6-2.11V5l6 2.11z"/>
       </svg>
-      <input id="map" value="map" type="radio" name="toggle">
+      <%= radio_button_tag "toggle", "map", [nil, "map"].include?(params[:toggle]) %>
+      <%# <input id="map" value="map" type="radio" name="toggle"> %>
       <span>
         Carte
       </span>
-    </label>
+    <%# </label> %>
+    <% end %>
+    <div class="separator"></div>
+    <%=  label_tag 'toggle_list', class:"btn-toggle" do %>
+    <%# <label for="list" class="btn-toggle" data-action="click->toggle#list"> %>
+      <svg id="list-icon" class="icon-btn icon-unactive" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 13h2v-2H3zm0 4h2v-2H3zm0-8h2V7H3zm4 4h14v-2H7zm0 4h14v-2H7zM7 7v2h14V7z"/>
+      </svg>
+      <%= radio_button_tag "toggle", "list", params[:toggle] == "list" %>
+      <%# <input id="list" value="list" type="radio" name="toggle"> %>
+      <span>
+          Liste
+      </span>
+    <%# </label> %>
+    <% end %>
   </div>
 <% end %>
